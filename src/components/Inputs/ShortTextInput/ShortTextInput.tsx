@@ -1,15 +1,15 @@
-import { ClassAttributes, InputHTMLAttributes, ReactElement } from "react";
+import { ClassAttributes, InputHTMLAttributes, ReactElement } from "react"
 
-import { InputBaseForm } from "..";
-import { useFormContext } from "react-hook-form";
-import { getInputClassname } from "@/helper/inputClassname";
-import { CustomInputProps } from '@/components/Inputs/CustomInputBase/customInputProps';
+import { InputBaseForm } from ".."
+import { useFormContext } from "react-hook-form"
+import { getInputClassname } from "@/helper/inputClassname"
+import { CustomInputProps } from "@/components/Inputs/CustomInputBase/customInputProps"
 
 interface PropsInputItem {
-  customProps?: CustomInputProps;
-  icon?: ReactElement;
-  needDisabled?: boolean;
-  errorBottom?: boolean;
+  customProps?: CustomInputProps
+  icon?: ReactElement
+  needDisabled?: boolean
+  errorBottom?: boolean
 }
 
 export const ShortTextInput = ({
@@ -22,13 +22,13 @@ export const ShortTextInput = ({
 }: ClassAttributes<HTMLInputElement> &
   InputHTMLAttributes<HTMLInputElement> &
   PropsInputItem): ReactElement => {
-  const { register, watch, formState } = useFormContext();
-  const error = formState.errors[props.name!];
+  const { register, watch, formState } = useFormContext()
+  const error = formState.errors[props.name!]
 
-  props.maxLength = props.maxLength ?? 50;
-  props.minLength = props.minLength ?? 2;
-  const length = watch(props.name!) ? watch(props.name!).length : 0;
-  props.placeholder = customProps.disabledText ? "" : props.placeholder;
+  props.maxLength = props.maxLength ?? 50
+  props.minLength = props.minLength ?? 2
+  const length = watch(props.name!) ? watch(props.name!).length : 0
+  props.placeholder = customProps.disabledText ? "" : props.placeholder
 
   return (
     <InputBaseForm
@@ -64,5 +64,5 @@ export const ShortTextInput = ({
         )}
       </div>
     </InputBaseForm>
-  );
-};
+  )
+}
